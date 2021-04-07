@@ -1,0 +1,14 @@
+name: 4freeCore
+author: nicolai
+version: 1.0
+main: me.nico.core.Main
+description: 4Free Core
+
+commands:
+    4freeCore:
+      description: Reload config
+      aliases:
+      - '4'
+      - 4f
+      - 4free
+      usage: "/<command> [reload]"

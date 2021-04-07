@@ -1,0 +1,32 @@
+############################################################
+#                         SkullBlock                       #
+############################################################
+Skullblock:
+  enabled: true
+  Messages:
+    Prefix: '&4&lSkullBlock &8&l> '
+    Reload: '&7Configs reloaded!'
+    Blocked: '&f{PLAYER} &7tried sending an IP! &8(&7&oThis has been logged&8)'
+    Output: '&7Message: &f'
+    SusBlocked: '&f{PLAYER} &7sent something suspicious! &8(&7&oThis has been logged&8)'
+    Suspicious: '&cYour message has been deleted as it has been deemed suspicious!'
+
+#SkullBlock configuration
+  Config:
+    Permission: '4free.cool'
+    Log_message_to_chat: true
+    Notify_with_sound: true
+
+#Automated commands run by console when a message is blocked!
+  Console_commands: 
+    enabled: true
+    list: #To add more commands, add four spaces and another "-"
+    - 'say first command'
+    - 'say second command'
+
+
+############################################################
+#                      Death Announcer                     #
+############################################################
+DeathAnnouncer:
+  enabled: true
