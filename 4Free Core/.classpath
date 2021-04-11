@@ -8,5 +8,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="C:/Users/pjeve/eclipse-workspace/spigot-1.8.8-R0.1-SNAPSHOT-latest (1).jar"/>
 	<classpathentry kind="lib" path="C:/Users/pjeve/eclipse-workspace/FactionsUUID.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pjeve/eclipse-workspace/EssentialsX-2.18.2.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

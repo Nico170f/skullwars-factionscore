@@ -20,16 +20,27 @@ public class ReloadCMD implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if(sender instanceof Player) {
 			
-			String prefix = main.getConfig().getString("Skullblock.Messages.Prefix");
-			String reloadMSG = main.getConfig().getString("Skullblock.Messages.Reload");
+			String reloadMSG = main.getConfig().getString("Reload");
 			Player player = (Player) sender;
-			if(player.hasPermission(main.getConfig().getString("Skullblock.Config.Permission"))) {
+			if(player.hasPermission(main.getConfig().getString("Reload_permission"))) {
+				
+				try {
 				main.reloadConfig();
 				main.saveDefaultConfig();
-				player.sendMessage(ChatColor.translateAlternateColorCodes('&', prefix + reloadMSG));
+				} catch (Exception e) {
+					player.sendMessage(ChatColor.RED + "ERROR Reloading config");
+					return false;
+				}
+				
+
+				
+				
+				player.sendMessage(ChatColor.translateAlternateColorCodes('&', reloadMSG));
 				return true;
+			} else {
+				player.sendMessage(ChatColor.RED + "You don't have permission to run this command.");
+				return false;
 			}
-			return false;
 		}else{
 			return false;
 		}

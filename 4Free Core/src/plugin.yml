@@ -3,12 +3,26 @@ author: nicolai
 version: 1.0
 main: me.nico.core.Main
 description: 4Free Core
+depends:
+  - Faction
+  - Essentials
 
 commands:
-    4freeCore:
-      description: Reload config
-      aliases:
-      - '4'
-      - 4f
-      - 4free
-      usage: "/<command> [reload]"
+  4freeCore:
+    description: Reload config
+    aliases:
+    - '4'
+    - 4f
+    - 4free
+    usage: "/<command>"
+  mbucket:
+    description: Gives megabucket
+    aliases:
+    - megabucket
+    - megab
+    usage: "/megabucket"
+  leave:
+    description: Command to leave LMS
+    aliases:
+    - lmsleave
+    usage: "/leave"

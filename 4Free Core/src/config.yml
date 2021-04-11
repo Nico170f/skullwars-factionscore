@@ -1,15 +1,19 @@
-############################################################
-#                         SkullBlock                       #
-############################################################
+#Global configuration
+Reload_permission: '4free.reload'
+Reload: '&7Configs reloaded!'
+
+
+
+#############################################################
+#                        SkullBlock                         #
+#############################################################
 Skullblock:
   enabled: true
   Messages:
-    Prefix: '&4&lSkullBlock &8&l> '
-    Reload: '&7Configs reloaded!'
-    Blocked: '&f{PLAYER} &7tried sending an IP! &8(&7&oThis has been logged&8)'
-    Output: '&7Message: &f'
-    SusBlocked: '&f{PLAYER} &7sent something suspicious! &8(&7&oThis has been logged&8)'
+    Blocked_alert: '&4&lSkullBlock &8&l> &f{PLAYER} &7tried sending an IP! &8(&7&oThis has been logged&8)'
+    Suspicious_alert: '&4&lSkullBlock &8&l> &f{PLAYER} &7sent something suspicious! &8(&7&oThis has been logged&8)'
     Suspicious: '&cYour message has been deleted as it has been deemed suspicious!'
+    Output: '&7Message: &f'
 
 #SkullBlock configuration
   Config:
@@ -25,8 +29,127 @@ Skullblock:
     - 'say second command'
 
 
-############################################################
-#                      Death Announcer                     #
-############################################################
+#############################################################
+#                      Death Announcer                      #
+#############################################################
 DeathAnnouncer:
   enabled: true
+  soundOn: true
+  config:
+    Partner_permission: '4free.partnership'
+    Staff_permission: '4free.staff'
+
+#{PLAYER}: Killed player
+#{KILLER}: Who killed the player
+  Messages:
+    staff-messages:
+      l1: '&6STAFF                          '
+      l2: '&6{PLAYER} was killed by {KILLER}'
+
+    partner-messages:
+      l1: '&dPARTNER                        '
+      l2: '&d{PLAYER} was killed by {KILLER}'
+
+    leader-messages:
+      l1: '&4FACTION OWNER                  '
+      l2: '&4{PLAYER} was killed by {KILLER}'
+
+    normal-messages:
+      l1: '&9NORMAL PLAYER                  '
+      l2: '&9{PLAYER} was killed by {KILLER}'
+
+
+
+#############################################################
+#                        Mega Bucket                        #
+#############################################################
+#Console command: /mbucket {PLAYER}
+MegaBucket:
+  enabled: true
+  soundOn: false
+  config:
+    bypass_permission: '4free.bucket.bypass'
+    cost: 10
+
+#{COST} shows price
+  messages:
+    charged: '&7You''ve been charged &a${COST}'
+    nofunds: '&7You need atleast &c${COST}!'
+    given: '&7You''ve been given a MegaBucket!'
+
+  item:
+    name: 'Item name1'
+    lore: #Add -
+    - 'bla1'
+    - 'blae2'
+
+
+#############################################################
+#                            LMS                            #
+#############################################################
+LMSLeave:
+  enabled: true
+  world: 'lms'
+
+#{WORLD} allowed world
+  messages:
+    teleported: '&aSuccessfully left "{WORLD}"!'
+    wrong-world: '&7This only works in "&c{WORLD}&7"!'
+    cmd-disabled: '&cThis command is disabled!'
+
+
+#{WORLD}
+#{PLAYER}
+LMSFix:
+  enabled: true
+  world: 'lms'
+  command: 'kill {PLAYER}'
+  bypass_permission: '4free.lmsfix.bypass'
+  chat_message: '&cYou''ve been automatically killed as you logged out in the {WORLD} world!'
+  bypass_message: '&aYou''ve bypassed LMSFix!'
+
+#############################################################
+#                          Reclaim                          #
+#############################################################
+Reclaim:
+  enabled: true
+
+#{RANK} : only avaliable in 'success_claimed'
+  Messages:
+    disabled: '&cCurrently disabled!'
+    not_ranked: '&cYou dont have a rank!'
+    already_claimed: '&cYou''ve already claimed!'
+    success_claimed: '&aSuccessfully claimed {RANK}!'
+
+  Ranks:
+    Admiral:
+      permission: 'group.admiral'
+      commands: 
+      - 'say User given Admiral'
+
+    Captain:
+      permission: 'group.captain'
+      commands: 
+      - 'say User given Captain'
+
+    Brute:
+      permission: 'group.brute'
+      commands: 
+      - 'say User given Brute'
+
+    Raider:
+      permission: 'group.raider'
+      commands: 
+      - 'say User given Raider'
+
+    Sailor:
+      permission: 'group.sailor'
+      commands: 
+      - 'say User given Sailor'
+
+#############################################################
+#                     Strength Modifier                     #
+#############################################################
+StrengthMod:
+  enabled: true
+  modifier: 3

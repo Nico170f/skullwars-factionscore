@@ -28,14 +28,14 @@ public class IPBlocker implements Listener {
 	@EventHandler
 	public void PlayerChatEvent(AsyncPlayerChatEvent event) {
 
-		if (main.getConfig().getString("Skullblock.enabled") == "false") {
+		if (!main.getConfig().getBoolean("Skullblock.enabled")) {
 			return;
 		} else {
 
 			Player player = event.getPlayer();
+			
 			String message = event.getMessage().toString();
-			String permission = main.getConfig().getString("Skullblock.Config.Permission");
-
+			
 			char charA = '.';
 			char charB = ',';
 			char charC = '-';
@@ -72,6 +72,8 @@ public class IPBlocker implements Listener {
 
 				main.getLogsConfig().set("Users." + player.getUniqueId() + ".Suspicious." + dtf.format(now),
 						event.getMessage());// event.getMessage()
+				
+				
 				try {
 					main.getLogsConfig().save(main.logsFile);
 				} catch (Exception e) {
@@ -82,12 +84,11 @@ public class IPBlocker implements Listener {
 				event.setCancelled(true);
 
 				for (Player all : Bukkit.getServer().getOnlinePlayers()) {
-					if (all.hasPermission(permission)) {
+					if (all.hasPermission(main.getConfig().getString("Skullblock.Config.Permission"))) {
 
-						String s1 = main.getConfig().getString("Skullblock.Messages.Prefix");
-						String s2 = main.getConfig().getString("Skullblock.Messages.SusBlocked");
+						String s2 = main.getConfig().getString("Skullblock.Messages.Suspicious_alert");
 						all.sendMessage(ChatColor.translateAlternateColorCodes('&',
-								s1 + s2.replace("{PLAYER}", player.getName())));
+								s2.replace("{PLAYER}", player.getName())));
 
 						String option1 = main.getConfig().getString("Skullblock.Config.Log_message_to_chat"); // .getString("Messages.Chatlog");
 						if (option1 == "true") {
@@ -111,17 +112,12 @@ public class IPBlocker implements Listener {
 				}
 
 				event.setCancelled(true);
-				ArrayList<String> hasPerm = new ArrayList<String>();
 				for (Player all : Bukkit.getServer().getOnlinePlayers()) {
-					if (all.hasPermission(permission)) {
+					if (all.hasPermission(main.getConfig().getString("Skullblock.Config.Permission"))) {
 
-						String pName = all.getName();
-						hasPerm.add(pName);
-
-						String s1 = main.getConfig().getString("Skullblock.Messages.Prefix");
-						String s2 = main.getConfig().getString("Skullblock.Messages.Blocked");
+						String s2 = main.getConfig().getString("Skullblock.Messages.Blocked_alert");
 						all.sendMessage(ChatColor.translateAlternateColorCodes('&',
-								s1 + s2.replace("{PLAYER}", player.getName())));
+								s2.replace("{PLAYER}", player.getName())));
 
 						String messageLog = main.getConfig().getString("Skullblock.Config.Log_message_to_chat");
 						if (messageLog == "true") {
