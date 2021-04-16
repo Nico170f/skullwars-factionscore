@@ -84,7 +84,7 @@ public class IPBlocker implements Listener {
 				event.setCancelled(true);
 
 				for (Player all : Bukkit.getServer().getOnlinePlayers()) {
-					if (all.hasPermission(main.getConfig().getString("Skullblock.Config.Permission"))) {
+					if (all.hasPermission(main.getConfig().getString("Skullblock.Config.Alert_permission"))) {
 
 						String s2 = main.getConfig().getString("Skullblock.Messages.Suspicious_alert");
 						all.sendMessage(ChatColor.translateAlternateColorCodes('&',
@@ -113,7 +113,7 @@ public class IPBlocker implements Listener {
 
 				event.setCancelled(true);
 				for (Player all : Bukkit.getServer().getOnlinePlayers()) {
-					if (all.hasPermission(main.getConfig().getString("Skullblock.Config.Permission"))) {
+					if (all.hasPermission(main.getConfig().getString("Skullblock.Config.Alert_permission"))) {
 
 						String s2 = main.getConfig().getString("Skullblock.Messages.Blocked_alert");
 						all.sendMessage(ChatColor.translateAlternateColorCodes('&',

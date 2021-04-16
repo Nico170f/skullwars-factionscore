@@ -1,10 +1,11 @@
-package me.nico.core;
+package me.nico.core.Commands;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import me.nico.core.Main;
 import net.md_5.bungee.api.ChatColor;
 
 public class ReloadCMD implements CommandExecutor {
@@ -38,8 +39,8 @@ public class ReloadCMD implements CommandExecutor {
 				player.sendMessage(ChatColor.translateAlternateColorCodes('&', reloadMSG));
 				return true;
 			} else {
-				player.sendMessage(ChatColor.RED + "You don't have permission to run this command.");
-				return false;
+				player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getConfig().getString("No_permission")));
+				return true;
 			}
 		}else{
 			return false;

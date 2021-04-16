@@ -1,11 +1,18 @@
 #Global configuration
 Reload_permission: '4free.reload'
+No_permission: '&cYou don''t have permission to run this command.'
 Reload: '&7Configs reloaded!'
+
+
+#Experimental features:
+HitDelay:
+  enabled: false #Must restart server after changing this option
+  delay: 20 #Default 20
 
 
 
 #############################################################
-#                        SkullBlock                         #
+#                        IP Blocker                         #
 #############################################################
 Skullblock:
   enabled: true
@@ -15,18 +22,21 @@ Skullblock:
     Suspicious: '&cYour message has been deleted as it has been deemed suspicious!'
     Output: '&7Message: &f'
 
-#SkullBlock configuration
   Config:
-    Permission: '4free.cool'
+    Alert_permission: '4free.cool'
     Log_message_to_chat: true
     Notify_with_sound: true
 
 #Automated commands run by console when a message is blocked!
   Console_commands: 
     enabled: true
-    list: #To add more commands, add four spaces and another "-"
+
+#{PLAYER}  
+#To add more commands, add four spaces and another "-"
+    list: 
     - 'say first command'
     - 'say second command'
+
 
 
 #############################################################
@@ -44,19 +54,19 @@ DeathAnnouncer:
   Messages:
     staff-messages:
       l1: '&6STAFF                          '
-      l2: '&6{PLAYER} was killed by {KILLER}'
+      l2: '&6{PLAYER} was killed by {KILLER} using: &f[&c{ITEM}&f]'
 
     partner-messages:
       l1: '&dPARTNER                        '
-      l2: '&d{PLAYER} was killed by {KILLER}'
+      l2: '&d{PLAYER} was killed by {KILLER} using: &f[&c{ITEM}&f]'
 
     leader-messages:
       l1: '&4FACTION OWNER                  '
-      l2: '&4{PLAYER} was killed by {KILLER}'
+      l2: '&4{PLAYER} was killed by {KILLER} using: &f[&c{ITEM}&f]'
 
     normal-messages:
       l1: '&9NORMAL PLAYER                  '
-      l2: '&9{PLAYER} was killed by {KILLER}'
+      l2: '&9{PLAYER} was killed by {KILLER} using: &f[&c{ITEM}&f]'
 
 
 
@@ -76,6 +86,7 @@ MegaBucket:
     charged: '&7You''ve been charged &a${COST}'
     nofunds: '&7You need atleast &c${COST}!'
     given: '&7You''ve been given a MegaBucket!'
+    console_only: '&cThis command can only be run in console!'
 
   item:
     name: 'Item name1'
@@ -120,6 +131,8 @@ Reclaim:
     not_ranked: '&cYou dont have a rank!'
     already_claimed: '&cYou''ve already claimed!'
     success_claimed: '&aSuccessfully claimed {RANK}!'
+    is_op: '&cOpped players can''t use reclaim!'
+    has_*: '&cPlayers with "*" permission can''t use this command!'
 
   Ranks:
     Admiral:

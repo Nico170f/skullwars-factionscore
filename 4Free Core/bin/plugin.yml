@@ -26,3 +26,8 @@ commands:
     aliases:
     - lmsleave
     usage: "/leave"
+  reclaim:
+    description: Reclaim
+    aliases:
+    - rclaim
+    usage: "/reclaim"
