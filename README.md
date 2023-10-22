@@ -1,5 +1,7 @@
 # SkullWars Custom Minecraft Plugin
 
+![SkullWars Bot](https://i.gyazo.com/e75479b0bfc6b5867d748cb1a11a559d.png) 
+
 ![Minecraft Version](https://img.shields.io/badge/Minecraft%20Version-1.8.x-brightgreen)
 ![Maintenance](https://img.shields.io/badge/Maintenance-Inactive-red)
 
@@ -26,3 +28,10 @@ The plugin shares data with a Discord bot through a MySQL database. The integrat
 
 ## Usage
 This plugin is designed for the SkullWars server and may not be directly compatible with other servers.
+
+
+<!--
+## Screenshots
+Here are a couple screenshots of the plugin:
+![Screenshot 1](https://i.gyazo.com/2e756d13be553e25d1987b011068c34c.png)
+-->
