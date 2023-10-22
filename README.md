@@ -5,6 +5,7 @@
 
 This Minecraft plugin was developed for the SkullWars server (2020-2021) and offers various custom features to enhance gameplay. Please note that this plugin is no longer actively maintained, and no support will be provided. Feel free to use and modify it as you see fit.
 
+The plugin shares data with a Discord bot through a MySQL database. The integration with the Discord bot allows for seamless communication and coordination between your Minecraft server and Discord community.
 
 ## Features
 
